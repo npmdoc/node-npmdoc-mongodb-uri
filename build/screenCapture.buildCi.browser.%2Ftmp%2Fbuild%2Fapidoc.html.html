@@ -1,0 +1,587 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/mongolab/mongodb-uri-node">mongodb-uri (v0.9.7)</a>
+</h1>
+<h4>A parser and formatter for MongoDB URIs.</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mongodb-uri">module mongodb-uri</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-uri.MongodbUriParser">
+            function <span class="apidocSignatureSpan">mongodb-uri.</span>MongodbUriParser
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-uri.format">
+            function <span class="apidocSignatureSpan">mongodb-uri.</span>format
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-uri.formatMongoose">
+            function <span class="apidocSignatureSpan">mongodb-uri.</span>formatMongoose
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-uri.parse">
+            function <span class="apidocSignatureSpan">mongodb-uri.</span>parse
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mongodb-uri.</span>MongodbUriParser.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mongodb-uri.MongodbUriParser">module mongodb-uri.MongodbUriParser</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-uri.MongodbUriParser.MongodbUriParser">
+            function <span class="apidocSignatureSpan">mongodb-uri.</span>MongodbUriParser
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mongodb-uri.MongodbUriParser.prototype">module mongodb-uri.MongodbUriParser.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-uri.MongodbUriParser.prototype._formatAddress">
+            function <span class="apidocSignatureSpan">mongodb-uri.MongodbUriParser.prototype.</span>_formatAddress
+            <span class="apidocSignatureSpan">(uriObject)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-uri.MongodbUriParser.prototype._parseAddress">
+            function <span class="apidocSignatureSpan">mongodb-uri.MongodbUriParser.prototype.</span>_parseAddress
+            <span class="apidocSignatureSpan">(address, uriObject)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-uri.MongodbUriParser.prototype.format">
+            function <span class="apidocSignatureSpan">mongodb-uri.MongodbUriParser.prototype.</span>format
+            <span class="apidocSignatureSpan">(uriObject)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-uri.MongodbUriParser.prototype.formatMongoose">
+            function <span class="apidocSignatureSpan">mongodb-uri.MongodbUriParser.prototype.</span>formatMongoose
+            <span class="apidocSignatureSpan">(uri)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongodb-uri.MongodbUriParser.prototype.parse">
+            function <span class="apidocSignatureSpan">mongodb-uri.MongodbUriParser.prototype.</span>parse
+            <span class="apidocSignatureSpan">(uri)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mongodb-uri" id="apidoc.module.mongodb-uri">module mongodb-uri</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-uri.MongodbUriParser" id="apidoc.element.mongodb-uri.MongodbUriParser">
+        function <span class="apidocSignatureSpan">mongodb-uri.</span>MongodbUriParser
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function MongodbUriParser(options) {
+    if (options &amp;&amp; options.scheme) {
+        this.scheme = options.scheme;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-uri.format" id="apidoc.element.mongodb-uri.format">
+        function <span class="apidocSignatureSpan">mongodb-uri.</span>format
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">format = function () { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Takes a URI object and returns a URI string.
+
+#### Example
+
+```javascript
+var mongodbUri = require('mongodb-uri');
+var uri = mongodbUri.<span class="apidocCodeKeywordSpan">format</span>(
+{
+    username: 'user:n@me',
+    password: 'p@ssword',
+    hosts: [
+        {
+            host: 'host',
+            port: 1234
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-uri.formatMongoose" id="apidoc.element.mongodb-uri.formatMongoose">
+        function <span class="apidocSignatureSpan">mongodb-uri.</span>formatMongoose
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">formatMongoose = function () { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var mongodbUri = require('mongodb-uri');
+
+// A MongoDB URI, not compatible with Mongoose because it lists multiple hosts in the address
+// Could be pulled from an environment variable or config file
+var uri = 'mongodb://username:password@host1:1234,host2:5678/database';
+
+// Reformat to a Mongoose connect string and connect()
+var mongooseConnectString = mongodbUri.<span class="apidocCodeKeywordSpan">formatMongoose</span>(uri);
+mongoose.connect(mongooseConnectString);
+
+// Test for connection success
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'Connection error: '));
+db.once('open', function callback () {
+console.log('Successfully connected to MongoDB');
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-uri.parse" id="apidoc.element.mongodb-uri.parse">
+        function <span class="apidocSignatureSpan">mongodb-uri.</span>parse
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parse = function () { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+input.
+
+#### Example
+
+```javascript
+var mongodbUri = require('mongodb-uri');
+var uri = 'mongodb://user%3An%40me:p%40ssword@host:1234/d%40tabase?authSource=%40dmin';
+var uriObject = mongodbUri.<span class="apidocCodeKeywordSpan">parse</span>(uri);
+console.log(JSON.stringify(uriObject, null, 2));
+```
+
+```
+{
+"scheme": "mongodb",
+"hosts": [
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mongodb-uri.MongodbUriParser" id="apidoc.module.mongodb-uri.MongodbUriParser">module mongodb-uri.MongodbUriParser</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-uri.MongodbUriParser.MongodbUriParser" id="apidoc.element.mongodb-uri.MongodbUriParser.MongodbUriParser">
+        function <span class="apidocSignatureSpan">mongodb-uri.</span>MongodbUriParser
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function MongodbUriParser(options) {
+    if (options &amp;&amp; options.scheme) {
+        this.scheme = options.scheme;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mongodb-uri.MongodbUriParser.prototype" id="apidoc.module.mongodb-uri.MongodbUriParser.prototype">module mongodb-uri.MongodbUriParser.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-uri.MongodbUriParser.prototype._formatAddress" id="apidoc.element.mongodb-uri.MongodbUriParser.prototype._formatAddress">
+        function <span class="apidocSignatureSpan">mongodb-uri.MongodbUriParser.prototype.</span>_formatAddress
+        <span class="apidocSignatureSpan">(uriObject)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _formatAddress(uriObject) {
+    var address = '';
+    uriObject.hosts.forEach(function (h, i) {
+        if (i &gt; 0) {
+            address += ',';
+        }
+        address += encodeURIComponent(h.host);
+        if (h.port) {
+            address += ':' + encodeURIComponent(h.port);
+        }
+    });
+    return address;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    // While it's not to the official spec, we allow empty passwords
+    if (uriObject.password) {
+        uri += ':' + encodeURIComponent(uriObject.password);
+    }
+    uri += '@';
+}
+
+uri += this.<span class="apidocCodeKeywordSpan">_formatAddress</span>(uriObject);
+
+// While it's not to the official spec, we only put a slash if there's a database, independent of whether there are options
+if (uriObject.database) {
+    uri += '/' + encodeURIComponent(uriObject.database);
+}
+
+if (uriObject.options) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-uri.MongodbUriParser.prototype._parseAddress" id="apidoc.element.mongodb-uri.MongodbUriParser.prototype._parseAddress">
+        function <span class="apidocSignatureSpan">mongodb-uri.MongodbUriParser.prototype.</span>_parseAddress
+        <span class="apidocSignatureSpan">(address, uriObject)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _parseAddress(address, uriObject) {
+    uriObject.hosts = [];
+    address.split(',').forEach(function (h) {
+        var i = h.indexOf(':');
+        if (i &gt;= 0) {
+            uriObject.hosts.push(
+                    {
+                        host: decodeURIComponent(h.substring(0, i)),
+                        port: parseInt(h.substring(i + 1))
+                    }
+            );
+        } else {
+            uriObject.hosts.push({ host: decodeURIComponent(h) });
+        }
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+       // Make sure the database name isn't the empty string
+       if (i &lt; rest.length - 1) {
+           uriObject.database = decodeURIComponent(rest.substring(i + 1));
+       }
+       rest = rest.substring(0, i);
+   }
+
+   this.<span class="apidocCodeKeywordSpan">_parseAddress</span>(rest, uriObject);
+
+   return uriObject;
+
+};
+
+/**
+* Parses the address into the uriObject, mutating it.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-uri.MongodbUriParser.prototype.format" id="apidoc.element.mongodb-uri.MongodbUriParser.prototype.format">
+        function <span class="apidocSignatureSpan">mongodb-uri.MongodbUriParser.prototype.</span>format
+        <span class="apidocSignatureSpan">(uriObject)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function format(uriObject) {
+
+    if (!uriObject) {
+        return (this.scheme || 'mongodb') + '://localhost';
+    }
+
+    if (this.scheme &amp;&amp; uriObject.scheme &amp;&amp; this.scheme !== uriObject.scheme) {
+        throw new Error('Scheme not supported: ' + uriObject.scheme);
+    }
+    var uri = (this.scheme || uriObject.scheme || 'mongodb') + '://';
+
+    if (uriObject.username) {
+        uri += encodeURIComponent(uriObject.username);
+        // While it's not to the official spec, we allow empty passwords
+        if (uriObject.password) {
+            uri += ':' + encodeURIComponent(uriObject.password);
+        }
+        uri += '@';
+    }
+
+    uri += this._formatAddress(uriObject);
+
+    // While it's not to the official spec, we only put a slash if there's a database, independent of whether there are options
+    if (uriObject.database) {
+        uri += '/' + encodeURIComponent(uriObject.database);
+    }
+
+    if (uriObject.options) {
+        Object.keys(uriObject.options).forEach(function (k, i) {
+            uri += i === 0 ? '?' : '&amp;';
+            uri += encodeURIComponent(k) + '=' + encodeURIComponent(uriObject.options[k]);
+        });
+    }
+
+    return uri;
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Takes a URI object and returns a URI string.
+
+#### Example
+
+```javascript
+var mongodbUri = require('mongodb-uri');
+var uri = mongodbUri.<span class="apidocCodeKeywordSpan">format</span>(
+{
+    username: 'user:n@me',
+    password: 'p@ssword',
+    hosts: [
+        {
+            host: 'host',
+            port: 1234
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-uri.MongodbUriParser.prototype.formatMongoose" id="apidoc.element.mongodb-uri.MongodbUriParser.prototype.formatMongoose">
+        function <span class="apidocSignatureSpan">mongodb-uri.MongodbUriParser.prototype.</span>formatMongoose
+        <span class="apidocSignatureSpan">(uri)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function formatMongoose(uri) {
+    var parser = this;
+    if (typeof uri === 'string') {
+        uri = parser.parse(uri);
+    }
+    if (!uri) {
+        return parser.format(uri);
+    }
+    var connectionString = '';
+    uri.hosts.forEach(function (h, i) {
+        if (i &gt; 0) {
+            connectionString += ',';
+        }
+        // This trick is okay because format() never dynamically inspects the keys in its argument
+        var singleUriObject = Object.create(uri);
+        singleUriObject.hosts = [ h ];
+        connectionString += parser.format(singleUriObject);
+    });
+    return connectionString;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var mongodbUri = require('mongodb-uri');
+
+// A MongoDB URI, not compatible with Mongoose because it lists multiple hosts in the address
+// Could be pulled from an environment variable or config file
+var uri = 'mongodb://username:password@host1:1234,host2:5678/database';
+
+// Reformat to a Mongoose connect string and connect()
+var mongooseConnectString = mongodbUri.<span class="apidocCodeKeywordSpan">formatMongoose</span>(uri);
+mongoose.connect(mongooseConnectString);
+
+// Test for connection success
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'Connection error: '));
+db.once('open', function callback () {
+console.log('Successfully connected to MongoDB');
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mongodb-uri.MongodbUriParser.prototype.parse" id="apidoc.element.mongodb-uri.MongodbUriParser.prototype.parse">
+        function <span class="apidocSignatureSpan">mongodb-uri.MongodbUriParser.prototype.</span>parse
+        <span class="apidocSignatureSpan">(uri)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function parse(uri) {
+
+    var uriObject = {};
+
+    var i = uri.indexOf('://');
+    if (i &lt; 0) {
+        throw new Error('No scheme found in URI ' + uri);
+    }
+    uriObject.scheme = uri.substring(0, i);
+    if (this.scheme &amp;&amp; this.scheme !== uriObject.scheme) {
+        throw new Error('URI must begin with ' + this.scheme + '://');
+    }
+    var rest = uri.substring(i + 3);
+
+    i = rest.indexOf('@');
+    if (i &gt;= 0) {
+        var credentials = rest.substring(0, i);
+        rest = rest.substring(i + 1);
+        i = credentials.indexOf(':');
+        if (i &gt;= 0) {
+            uriObject.username = decodeURIComponent(credentials.substring(0, i));
+            uriObject.password = decodeURIComponent(credentials.substring(i + 1));
+        } else {
+            uriObject.username = decodeURIComponent(credentials);
+        }
+    }
+
+    i = rest.indexOf('?');
+    if (i &gt;= 0) {
+        var options = rest.substring(i + 1);
+        rest = rest.substring(0, i);
+        uriObject.options = {};
+        options.split('&amp;').forEach(function (o) {
+            var iEquals = o.indexOf('=');
+            uriObject.options[decodeURIComponent(o.substring(0, iEquals))] = decodeURIComponent(o.substring(iEquals + 1));
+        });
+    }
+
+    i = rest.indexOf('/');
+    if (i &gt;= 0) {
+        // Make sure the database name isn't the empty string
+        if (i &lt; rest.length - 1) {
+            uriObject.database = decodeURIComponent(rest.substring(i + 1));
+        }
+        rest = rest.substring(0, i);
+    }
+
+    this._parseAddress(rest, uriObject);
+
+    return uriObject;
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+input.
+
+#### Example
+
+```javascript
+var mongodbUri = require('mongodb-uri');
+var uri = 'mongodb://user%3An%40me:p%40ssword@host:1234/d%40tabase?authSource=%40dmin';
+var uriObject = mongodbUri.<span class="apidocCodeKeywordSpan">parse</span>(uri);
+console.log(JSON.stringify(uriObject, null, 2));
+```
+
+```
+{
+"scheme": "mongodb",
+"hosts": [
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
